@@ -17,10 +17,20 @@ namespace MIS4200_Team2.Controllers
         private MIS4200_Team2Context db = new MIS4200_Team2Context();
 
         // GET: employeeData
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var testusers = from u in db.employeeData select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testusers = testusers.Where(u =>
+                  u.lastName.Contains(searchString)
+                  || u.firstName.Contains(searchString));
+                // if here, users were found so view them
+                return View(testusers.ToList());
+            }
             return View(db.employeeData.ToList());
         }
+
 
         // GET: employeeData/Details/5
         public ActionResult Details(Guid? id)
