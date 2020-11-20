@@ -28,7 +28,17 @@ namespace MIS4200_Team2.Controllers
                 // if here, users were found so view them
                 return View(testusers.ToList());
             }
-            return View(db.employeeData.ToList());
+
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.employeeData.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
+
+           
         }
 
 

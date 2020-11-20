@@ -18,7 +18,15 @@ namespace MIS4200_Team2.Controllers
         // GET: Recognitions
         public ActionResult Index()
         {
-            return View(db.Recognitions.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.Recognitions.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
+            
         }
 
         // GET: Recognitions/Details/5

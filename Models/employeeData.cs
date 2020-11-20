@@ -44,5 +44,6 @@ namespace MIS4200_Team2.Models
             { get
             { return firstName + " " + lastName; }  
                 }
+        public ICollection<Recognition> Recognition { get; set; }
     }
 }

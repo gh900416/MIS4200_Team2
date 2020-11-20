@@ -12,7 +12,6 @@ namespace MIS4200_Team2.Models
         
         [Display(Name ="Core Value Being Recognized")]
         public CoreValue award { get; set; }
-
         [Display(Name = "Who's giving the recognition?")]
         public Guid recognizer { get; set; }
 
@@ -32,5 +31,9 @@ namespace MIS4200_Team2.Models
             GreaterGood = 6,
             Balance = 7
         }
+
+
+
+
     }
 }
