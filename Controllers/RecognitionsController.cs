@@ -47,6 +47,7 @@ namespace MIS4200_Team2.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
+            ViewBag.recognizer = new SelectList(db.employeeData, "ID", "fullName");
             return View();
         }
 
@@ -63,7 +64,7 @@ namespace MIS4200_Team2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.recognizer = new SelectList(db.employeeData, "ID", "fullName");
             return View(recognition);
         }
 
