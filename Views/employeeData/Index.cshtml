@@ -12,7 +12,8 @@
             @using (Html.BeginForm("Index", "employeeData", FormMethod.Get))
             {
                 <p>
-                    Search for users by first or last name:
+                    Search for users by first or last name <span class="glyphicon glyphicon-search	
+"></span>:
                     @Html.TextBox("searchString")
                     <input type="submit" value="Search" />
                 </p>
@@ -25,7 +26,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.emailAddress)
+                @Html.DisplayNameFor(model => model.emailAddress) <span class="glyphicon glyphicon-envelope"></span>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.firstName)
@@ -34,10 +35,10 @@
                 @Html.DisplayNameFor(model => model.lastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.phoneNumber)
+                @Html.DisplayNameFor(model => model.phoneNumber) <span class="glyphicon glyphicon-phone"></span>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.officeLocation)
+                @Html.DisplayNameFor(model => model.officeLocation) 
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.position)
@@ -73,9 +74,8 @@
                     @Html.DisplayFor(modelItem => item.hireDate)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Information", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Remove Employee", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+
                 </td>
             </tr>
         }
